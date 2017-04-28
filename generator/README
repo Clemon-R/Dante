@@ -1,0 +1,25 @@
+Function system:
+-Malloc
+-Free
+-Read
+-Write
+-Static
+
+Personnal function:
+-my_putchar
+-my_putstr
+-my_putstr_upper
+-my_putstr_err
+-my_put_nbr
+-my_put_nbr_printf
+-my_getnbr
+-my_strlen
+-get_next_line
+-my_strstr
+-my_strcpy
+-my_strcmp
+-split (string with a char)
+-free_safe
+-free-wordtab
+-my_put_nbr_base
+-my_printf
