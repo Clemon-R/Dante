@@ -5,7 +5,7 @@
 ## Login   <raphael.goulmot@epitech.net>
 ##
 ## Started on  Tue Nov 29 15:57:16 2016 Raphaël Goulmot
-## Last update Mon May  1 14:21:11 2017 Raphaël Goulmot
+## Last update Mon May  1 16:37:28 2017 Raphaël Goulmot
 ##
 
 CC	=	gcc
@@ -24,13 +24,16 @@ SRC	=	src/utils/my_putstr_err.c	\
 		src/utils/my_base.c		\
 		include/line.h			\
 		include/utils.h			\
-		include/gen.h
+		include/gen.h			\
+		include/astar.h
 
 GEN	=	generator/src/main.c		\
 		generator/src/gen.c		\
 		generator/src/minecraft.c
 
-ASTAR	=	astar/src/main.c
+ASTAR	=	astar/src/main.c		\
+		astar/src/solve.c		\
+		astar/src/resolve.c
 
 DEPTH	=	depth/src/main.c
 
