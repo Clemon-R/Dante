@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Sat Apr 29 18:02:20 2017 Raphaël Goulmot
-** Last update Sat Apr 29 18:23:56 2017 Raphaël Goulmot
+** Last update Mon May  1 14:10:29 2017 Raphaël Goulmot
 */
 
 #include "utils.h"
@@ -20,7 +20,7 @@ static char	**create_grid(const uint width, const uint height)
   if (!new)
     return (new);
   i = 0;
-  while (i < height)
+  while (i < (int)height)
     new[i++] = malloc(sizeof(char) * (width + 1));
   new[i] = 0;
   return (new);
@@ -48,10 +48,10 @@ static void	empty_map(t_map	*map)
   y = 0;
   if (!map)
     return;
-  while (map->map && y < map->height)
+  while (map->map && y < (int)map->height)
     {
       x = 0;
-      while (map->map[y] && x < map->width)
+      while (map->map[y] && x < (int)map->width)
 	map->map[y][x++] = 'X';
       map->map[y][x] = 0;
       y++;
@@ -81,4 +81,5 @@ char	gen(const uint width, const uint height, const bool perfect)
     }
   empty_map(map);
   display_map(map);
+  return (0);
 }

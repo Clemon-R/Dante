@@ -5,7 +5,7 @@
 ## Login   <raphael.goulmot@epitech.net>
 ##
 ## Started on  Tue Nov 29 15:57:16 2016 Raphaël Goulmot
-## Last update Fri Apr 28 19:19:30 2017 Raphaël Goulmot
+## Last update Mon May  1 14:09:31 2017 Raphaël Goulmot
 ##
 
 CC	=	gcc
@@ -23,9 +23,11 @@ SRC	=	src/utils/my_putstr_err.c	\
 		src/utils/my_printf.c		\
 		src/utils/my_base.c		\
 		include/line.h			\
-		include/utils.h
+		include/utils.h			\
+		include/gen.h
 
-GEN	=	generator/src/main.c
+GEN	=	generator/src/main.c		\
+		generator/src/gen.c
 
 ASTAR	=	astar/src/main.c
 
