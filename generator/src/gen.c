@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Sat Apr 29 18:02:20 2017 Raphaël Goulmot
-** Last update Mon May  1 14:10:29 2017 Raphaël Goulmot
+** Last update Mon May  1 14:19:14 2017 Raphaël Goulmot
 */
 
 #include "utils.h"
@@ -80,6 +80,8 @@ char	gen(const uint width, const uint height, const bool perfect)
       return (84);
     }
   empty_map(map);
+  display_map(map);
+  minecraft(map);
   display_map(map);
   return (0);
 }

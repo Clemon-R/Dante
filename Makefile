@@ -5,7 +5,7 @@
 ## Login   <raphael.goulmot@epitech.net>
 ##
 ## Started on  Tue Nov 29 15:57:16 2016 Raphaël Goulmot
-## Last update Mon May  1 14:09:31 2017 Raphaël Goulmot
+## Last update Mon May  1 14:21:11 2017 Raphaël Goulmot
 ##
 
 CC	=	gcc
@@ -27,7 +27,8 @@ SRC	=	src/utils/my_putstr_err.c	\
 		include/gen.h
 
 GEN	=	generator/src/main.c		\
-		generator/src/gen.c
+		generator/src/gen.c		\
+		generator/src/minecraft.c
 
 ASTAR	=	astar/src/main.c
 
@@ -58,7 +59,7 @@ TMP	=	$(OBJ_G:.h=.h~)	\
 		$(OBJ_B:.h=.h~)	\
 		$(OBJ_T:.h=.h~)
 
-CFLAGS	=	-W -Wall -Wextra -Werror -Iinclude -g3 -pedantic
+CFLAGS	=	-W -Wextra -Werror -Iinclude -g3 -pedantic
 
 NAME_G	=	generator/generator
 
