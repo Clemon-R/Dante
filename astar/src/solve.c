@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Mon May  1 15:46:24 2017 Raphaël Goulmot
-** Last update Mon May  1 17:21:42 2017 Raphaël Goulmot
+** Last update Wed May  3 15:56:40 2017 Raphaël Goulmot
 */
 
 #include "utils.h"
@@ -107,7 +107,6 @@ void	display_map(t_map *map)
       my_putchar('\n');
       y++;
     }
-  my_putchar('\n');
 }
 
 void	astar(char *file_name)
@@ -115,7 +114,5 @@ void	astar(char *file_name)
   t_map	*map;
 
   map = load_file(file_name);
-  if (map)
-    display_map(map);
   resolve(map);
 }

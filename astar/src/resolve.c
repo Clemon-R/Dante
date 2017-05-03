@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Mon May  1 16:36:39 2017 Raphaël Goulmot
-** Last update Tue May  2 18:31:50 2017 Raphaël Goulmot
+** Last update Wed May  3 15:50:11 2017 Raphaël Goulmot
 */
 
 #include "astar.h"
@@ -19,8 +19,8 @@ char	more_short(t_map *map, t_room *first, t_room *second)
 
   defaul = map->end->y + map->end->x;
   if (first)
-    size1 = first->y * first->x;
-  size2 = second->y * second->x;
+    size1 = map->height * first->y + map->width * first->x;
+  size2 = map->height * second->y + map->width * second->x;
   if (!first || size1 < size2)
     return (1);
   return (0);
