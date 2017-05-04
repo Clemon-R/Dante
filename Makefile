@@ -5,7 +5,7 @@
 ## Login   <raphael.goulmot@epitech.net>
 ##
 ## Started on  Tue Nov 29 15:57:16 2016 Raphaël Goulmot
-## Last update Mon May  1 14:21:11 2017 Raphaël Goulmot
+## Last update Tue May  2 15:28:29 2017 Thomas DEBRAND PASSARD
 ##
 
 CC	=	gcc
@@ -22,13 +22,14 @@ SRC	=	src/utils/my_putstr_err.c	\
 		src/utils/line.c		\
 		src/utils/my_printf.c		\
 		src/utils/my_base.c		\
+		src/utils/my_put_tab.c		\
 		include/line.h			\
 		include/utils.h			\
 		include/gen.h
 
-GEN	=	generator/src/main.c		\
-		generator/src/gen.c		\
-		generator/src/minecraft.c
+GEN	=	generator/src/main_gene.c	\
+		generator/src/create_tab.c	\
+		generator/src/direction.c
 
 ASTAR	=	astar/src/main.c
 

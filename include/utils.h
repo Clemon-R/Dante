@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 **
 ** Started on  Thu Dec 15 14:35:14 2016 Raphaël Goulmot
-** Last update Fri Apr 28 17:55:52 2017 Raphaël Goulmot
+** Last update Mon May  1 16:03:20 2017 Thomas DEBRAND PASSARD
 */
 
 #ifndef UTILS_H_
@@ -37,5 +37,6 @@ void	free_safe(void *);
 void	my_put_nbr_printf(int, char);
 void	my_put_nbr_base(int, char *);
 void	my_printf(char *, ...);
+void	my_put_tab(char **);
 
 #endif /* !UTILS_H_ */
