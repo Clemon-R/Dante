@@ -2,7 +2,7 @@
 ** line.c for default in /home/raphael.goulmot/corewar
 ** 
 ** Made by Raphaël Goulmot
-** Login   <raphael.goulmot@epitech.net>
+** Login   <raphael.goulmot@epitech.eu>
 ** 
 ** Started on  Thu Mar 30 20:20:06 2017 Raphaël Goulmot
 ** Last update Sat Apr  1 00:35:34 2017 Raphaël Goulmot
@@ -14,9 +14,9 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-char	end_line(t_read *world)
+char    end_line(t_read *world)
 {
-  char	end;
+  char  end;
 
   end = world->buff && my_strlen(world->buff) ? 1 : -1;
   if (end == -1)

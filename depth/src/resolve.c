@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Mon May  1 16:36:39 2017 Raphaël Goulmot
-** Last update Thu May  4 13:18:40 2017 Raphaël Goulmot
+** Last update Thu May  4 16:15:34 2017 Raphaël Goulmot
 */
 
 #include "depth.h"
@@ -73,16 +73,6 @@ t_room	*resolve_pos(t_map *map, t_room *old)
   return (current);
 }
 
-void	display_path(t_map *map, t_room *start)
-{
-  t_room	*current;
-
-  current = start;
-  current->display = true;
-  while ((current = current->parent))
-    current->display = true;
-}
-
 void	resolve(t_map *map)
 {
   t_room	*current;
@@ -97,8 +87,9 @@ void	resolve(t_map *map)
       new->visited = true;
       if (new != current->parent)
 	new->parent = current;
+      else
+	current->parent = 0;
       current = new;
     }
-  display_path(map, current);
   display_map(map);
 }

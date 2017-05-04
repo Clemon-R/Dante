@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Fri Dec 16 15:20:37 2016 Raphaël Goulmot
-** Last update Thu May  4 13:00:07 2017 Raphaël Goulmot
+** Last update Thu May  4 15:44:10 2017 Raphaël Goulmot
 */
 
 #include "utils.h"
@@ -18,7 +18,7 @@ int	my_getnbr(char *str)
 
   clone = str;
   while (clone && *clone && (*clone == '-' || *clone == '+') && ++clone);
-  neg = str != clone ? *(clone - 1) == '-' : *clone == '-';
+  neg = str != clone ? (*(clone - 1) == '-') : (*clone == '-');
   value = 0;
   while (clone && *clone >= '0' && *clone <= '9' && ++clone)
     value = value * 10 + (*(clone - 1) - 48);

@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Mon May  1 16:36:39 2017 Raphaël Goulmot
-** Last update Wed May  3 15:50:11 2017 Raphaël Goulmot
+** Last update Thu May  4 16:14:42 2017 Raphaël Goulmot
 */
 
 #include "astar.h"
@@ -51,16 +51,6 @@ t_room	*resolve_pos(t_map *map, int y, int x, t_room *old)
   return (current);
 }
 
-void	display_path(t_map *map, t_room *start)
-{
-  t_room	*current;
-
-  current = start;
-  current->display = true;
-  while ((current = current->parent))
-    current->display = true;
-}
-
 void	resolve(t_map *map)
 {
   t_room	*current;
@@ -72,8 +62,9 @@ void	resolve(t_map *map)
       if (!(new = resolve_pos(map, current->y, current->x, current)))
 	new = current->parent;
       new->visited = true;
+      if (current->parent == new)
+	current->parent = 0;
       current = new;
     }
-  display_path(map, current);
   display_map(map);
 }

@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Mon May  1 15:46:24 2017 Raphaël Goulmot
-** Last update Thu May  4 14:43:23 2017 Raphaël Goulmot
+** Last update Thu May  4 16:17:01 2017 Raphaël Goulmot
 */
 
 #include "utils.h"
@@ -29,7 +29,6 @@ void	load_line(char *line, t_room **grid_line, int y)
       room->visited = false;
       room->parent = 0;
       room->blocked = false;
-      room->display = false;
       if (*line != '*')
 	room->blocked = true;
       *grid_line = room;
@@ -102,7 +101,7 @@ void	display_map(t_map *map)
       while (map->grid[y][x])
 	{
 	  my_putchar(map->grid[y][x]->blocked  == true ? 'X'
-		     : map->grid[y][x]->display ? 'O' : '*');
+		     : map->grid[y][x]->parent ? 'O' : '*');
 	  x++;
 	}
       my_putchar('\n');
