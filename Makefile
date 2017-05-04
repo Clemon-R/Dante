@@ -5,7 +5,7 @@
 ## Login   <raphael.goulmot@epitech.net>
 ##
 ## Started on  Tue Nov 29 15:57:16 2016 Raphaël Goulmot
-## Last update Mon May  1 16:37:28 2017 Raphaël Goulmot
+## Last update Thu May  4 12:07:26 2017 Raphaël Goulmot
 ##
 
 CC	=	gcc
@@ -35,7 +35,9 @@ ASTAR	=	astar/src/main.c		\
 		astar/src/solve.c		\
 		astar/src/resolve.c
 
-DEPTH	=	depth/src/main.c
+DEPTH	=	depth/src/main.c		\
+		depth/src/solve.c		\
+		depth/src/resolve.c
 
 BREADTH	=	breadth/src/main.c
 
