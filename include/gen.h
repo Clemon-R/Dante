@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Sat Apr 29 18:10:59 2017 Raphaël Goulmot
-** Last update Thu May  4 13:58:02 2017 Thomas DEBRAND PASSARD
+** Last update Thu May  4 15:40:33 2017 Thomas DEBRAND PASSARD
 */
 
 #ifndef GEN_H_
@@ -23,7 +23,7 @@ typedef struct	s_map
 }		t_map;
 
 char	gen(const uint width, const uint height, const bool perfect);
-void	minecraft(const t_map *map);
+void	minecraft(t_map *map);
 
 /*
 **	create_tab.c

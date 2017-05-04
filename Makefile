@@ -5,7 +5,7 @@
 ## Login   <raphael.goulmot@epitech.net>
 ##
 ## Started on  Tue Nov 29 15:57:16 2016 Raphaël Goulmot
-## Last update Tue May  2 15:28:29 2017 Thomas DEBRAND PASSARD
+## Last update Thu May  4 15:40:49 2017 Thomas DEBRAND PASSARD
 ##
 
 CC	=	gcc
@@ -25,15 +25,20 @@ SRC	=	src/utils/my_putstr_err.c	\
 		src/utils/my_put_tab.c		\
 		include/line.h			\
 		include/utils.h			\
-		include/gen.h
+		include/gen.h			\
+		include/astar.h
 
 GEN	=	generator/src/main_gene.c	\
 		generator/src/create_tab.c	\
 		generator/src/direction.c
 
-ASTAR	=	astar/src/main.c
+ASTAR	=	astar/src/main.c		\
+		astar/src/solve.c		\
+		astar/src/resolve.c
 
-DEPTH	=	depth/src/main.c
+DEPTH	=	depth/src/main.c		\
+		depth/src/solve.c		\
+		depth/src/resolve.c
 
 BREADTH	=	breadth/src/main.c
 
