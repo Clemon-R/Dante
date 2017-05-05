@@ -5,7 +5,7 @@
 ** Login   <tdebrand@epitech.net>
 ** 
 ** Started on  Mon May  1 15:29:42 2017 Thomas DEBRAND PASSARD
-** Last update Fri May  5 20:59:18 2017 Raphaël Goulmot
+** Last update Fri May  5 21:23:33 2017 Raphaël Goulmot
 */
 
 #include "utils.h"
@@ -22,6 +22,7 @@ int	main(int ac, char **av)
   map = malloc(sizeof(t_map));
   map->height =	my_getnbr(av[2]);
   map->width = my_getnbr(av[1]);
+  map->perfect = ac == 4 && my_strcmp(av[3], "perfect");
   gen(map);
   return (0);
 }

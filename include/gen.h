@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Sat Apr 29 18:10:59 2017 Raphaël Goulmot
-** Last update Fri May  5 21:09:34 2017 Raphaël Goulmot
+** Last update Fri May  5 21:21:47 2017 Raphaël Goulmot
 */
 
 #ifndef GEN_H_
@@ -28,6 +28,7 @@ typedef struct	s_map
 {
   int		height;
   int		width;
+  bool		perfect;
   t_room	*start;
   t_room	*end;
   t_room	***grid;
