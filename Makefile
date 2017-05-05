@@ -5,7 +5,7 @@
 ## Login   <raphael.goulmot@epitech.net>
 ##
 ## Started on  Tue Nov 29 15:57:16 2016 Raphaël Goulmot
-## Last update Fri May  5 21:09:48 2017 Raphaël Goulmot
+## Last update Fri May  5 21:15:52 2017 Raphaël Goulmot
 ##
 
 CC	=	gcc
@@ -33,6 +33,11 @@ GEN	=	generator/src/main_gene.c	\
 		generator/src/check.c		\
 		generator/src/move.c
 
+GEN_B	=	generator/bonus/src/main_gene.c	\
+		generator/bonus/src/gen.c		\
+		generator/bonus/src/check.c		\
+		generator/bonus/src/move.c
+
 ASTAR	=	astar/src/main.c		\
 		astar/src/solve.c		\
 		astar/src/resolve.c
@@ -47,6 +52,9 @@ TOURNAMENT	=	tournament/src/main.c
 
 OBJ_G	=	$(SRC:.c=.o)	\
 		$(GEN:.c=.o)
+
+OBJ_GB	=	$(SRC:.c=.o)	\
+		$(GEN_B:.c=.o)
 
 OBJ_A	=	$(SRC:.c=.o)	\
 		$(ASTAR:.c=.o)
@@ -64,11 +72,14 @@ TMP	=	$(OBJ_G:.h=.h~)	\
 		$(OBJ_A:.h=.h~)	\
 		$(OBJ_D:.h=.h~)	\
 		$(OBJ_B:.h=.h~)	\
-		$(OBJ_T:.h=.h~)
+		$(OBJ_T:.h=.h~)	\
+		$(OBJ_GB:.h=.h~)
 
 CFLAGS	=	-W -Wextra -Werror -Iinclude -g3 -pedantic
 
 NAME_G	=	generator/generator
+
+NAME_GB	=	generator/bonus/generator
 
 NAME_A	=	astar/solver
 
@@ -78,7 +89,7 @@ NAME_B	=	breadth/solver
 
 NAME_T	=	tournament/solver
 
-all:	$(NAME_G) $(NAME_A) $(NAME_D) $(NAME_B) $(NAME_T)
+all:	$(NAME_G) $(NAME_A) $(NAME_D) $(NAME_B) $(NAME_T) $(NAME_GB)
 
 $(NAME_G):	$(OBJ_G)
 	gcc $(OBJ_G) -o $(NAME_G) $(CFLAGS)
@@ -95,6 +106,9 @@ $(NAME_B):	$(OBJ_B)
 $(NAME_T):	$(OBJ_T)
 	gcc $(OBJ_T) -o $(NAME_T) $(CFLAGS)
 
+$(NAME_GB):	$(OBJ_GB)
+	gcc $(OBJ_GB) -o $(NAME_GB) $(CFLAGS)
+
 clean:
 	rm -f $(TMP)
 
@@ -104,6 +118,7 @@ fclean:	clean
 	rm -f $(NAME_D)
 	rm -f $(NAME_B)
 	rm -f $(NAME_T)
+	rm -f $(NAME_GB)
 
 re:	fclean all
 
