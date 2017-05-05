@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Fri May  5 21:03:26 2017 Raphaël Goulmot
-** Last update Fri May  5 21:21:18 2017 Raphaël Goulmot
+** Last update Fri May  5 21:53:19 2017 Raphaël Goulmot
 */
 
 #include "gen.h"
@@ -39,14 +39,14 @@ char    check_h(t_map *map, t_room *current, char dir)
   char          check;
 
   check = 1;
-    first = current->x + dir >= 0 && current->x + dir < map->width
-      ? map->grid[current->y][current->x + dir] : 0;
-      second = current->x + dir * 2 >= 0 && current->x + dir * 2 < map->width
-	? map->grid[current->y][current->x + dir * 2] : 0;
-      if ((!first || !first->blocked || !check_arround(map, first, 0))
+  first = current->x + dir >= 0 && current->x + dir < map->width
+    ? map->grid[current->y][current->x + dir] : 0;
+  second = current->x + dir * 2 >= 0 && current->x + dir * 2 < map->width
+    ? map->grid[current->y][current->x + dir * 2] : 0;
+  if ((!first || !first->blocked || !check_arround(map, first, 0))
 	  || (map->perfect && second && !second->blocked ))
-	check = 0;
-      return (check);
+    check = 0;
+  return (check);
 }
 
 char    check_v(t_map *map, t_room *current, char dir)

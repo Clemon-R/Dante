@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Fri May  5 21:07:27 2017 Raphaël Goulmot
-** Last update Fri May  5 21:10:47 2017 Raphaël Goulmot
+** Last update Fri May  5 21:51:52 2017 Raphaël Goulmot
 */
 
 #include "gen.h"
@@ -44,7 +44,6 @@ t_room  *move_h(t_map *map, t_room *current, char dir)
       if (new == current || !check_h(map, current, dir))
 	return (0);
       new->parent = current;
-      new->blocked = false;
     }
   return (new);
 }
@@ -60,7 +59,6 @@ t_room  *move_v(t_map *map, t_room *current, char dir)
       if (new == current || !check_v(map, current, dir))
 	return (0);
       new->parent = current;
-      new->blocked = false;
     }
   return (new);
 }

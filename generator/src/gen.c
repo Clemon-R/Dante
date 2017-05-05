@@ -5,7 +5,7 @@
 ** Login   <tdebrand@epitech.net>
 ** 
 ** Started on  Mon May  1 15:31:53 2017 Thomas DEBRAND PASSARD
-** Last update Fri May  5 21:08:15 2017 Raphaël Goulmot
+** Last update Fri May  5 21:54:03 2017 Raphaël Goulmot
 */
 
 #include "utils.h"
@@ -22,7 +22,8 @@ t_room	*create_empty_room(int y, int x)
   new->y = y;
   new->x = x;
   new->blocked = true;
-  new->visited = false;
+  new->o = false;
+  new->parent = 0;
   return (new);
 }
 
@@ -55,13 +56,15 @@ t_room	*next_room(t_map *map, t_room *current)
     new = move_h(map, current, dir);
   else
     new = move_v(map, current, dir);
-  if (new && new != current->parent)
+  if (new)
     current = new;
-  else if (current->parent && !check_move(map, current))
+  else if (current && !check_move(map, current))
     if (current->parent != current)
       current = current->parent;
     else
-      current = 0;
+      current = map->end;
+  if (current)
+    current->blocked = false;
   return (current);
 }
 
@@ -82,7 +85,7 @@ void	gen(t_map *map)
   while (current && current != map->start)
     {
       current = current->parent;
-      if (!check_move(map, current))
+      if (current && !check_move(map, current))
 	continue;
       while (current && check_move(map, current))
 	current = next_room(map, current);
