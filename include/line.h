@@ -5,14 +5,14 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Thu Mar 30 20:59:23 2017 Raphaël Goulmot
-** Last update Fri Mar 31 22:50:41 2017 Raphaël Goulmot
+** Last update Thu May  4 18:22:26 2017 Raphaël Goulmot
 */
 
 #ifndef LINE_H_
 # define LINE_H_
 
 # ifndef READ_SIZE
-# define READ_SIZE 1
+# define READ_SIZE 4096
 # endif
 
 typedef struct	s_read

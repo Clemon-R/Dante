@@ -5,7 +5,7 @@
 ## Login   <raphael.goulmot@epitech.net>
 ##
 ## Started on  Tue Nov 29 15:57:16 2016 Raphaël Goulmot
-## Last update Thu May  4 15:40:49 2017 Thomas DEBRAND PASSARD
+## Last update Fri May  5 21:09:48 2017 Raphaël Goulmot
 ##
 
 CC	=	gcc
@@ -29,8 +29,9 @@ SRC	=	src/utils/my_putstr_err.c	\
 		include/astar.h
 
 GEN	=	generator/src/main_gene.c	\
-		generator/src/create_tab.c	\
-		generator/src/direction.c
+		generator/src/gen.c		\
+		generator/src/check.c		\
+		generator/src/move.c
 
 ASTAR	=	astar/src/main.c		\
 		astar/src/solve.c		\

@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Mon May  1 16:36:39 2017 Raphaël Goulmot
-** Last update Thu May  4 16:14:42 2017 Raphaël Goulmot
+** Last update Thu May  4 19:00:31 2017 Raphaël Goulmot
 */
 
 #include "astar.h"
@@ -18,6 +18,7 @@ char	more_short(t_map *map, t_room *first, t_room *second)
   int	size2;
 
   defaul = map->end->y + map->end->x;
+  size1 = 0;
   if (first)
     size1 = map->height * first->y + map->width * first->x;
   size2 = map->height * second->y + map->width * second->x;
@@ -56,15 +57,22 @@ void	resolve(t_map *map)
   t_room	*current;
   t_room	*new;
 
+  new = 0;
   current = map->start;
-  while (map->end != current)
+  while (current && map->end != current)
     {
-      if (!(new = resolve_pos(map, current->y, current->x, current)))
+      if (!(new = resolve_pos(map
+			      , current->y
+			      , current->x
+			      , current)))
 	new = current->parent;
-      new->visited = true;
+      if (new)
+	new->visited = true;
       if (current->parent == new)
 	current->parent = 0;
       current = new;
     }
+  if (current == map->end)
+    map->start->parent = map->start;
   display_map(map);
 }

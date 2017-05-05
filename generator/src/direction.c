@@ -5,13 +5,13 @@
 ** Login   <tdebrand@epitech.net>
 ** 
 ** Started on  Tue May  2 15:09:44 2017 Thomas DEBRAND PASSARD
-** Last update Thu May  4 15:36:04 2017 Thomas DEBRAND PASSARD
+** Last update Thu May  4 19:39:54 2017 Raphaël Goulmot
 */
 
 #include "utils.h"
 #include "gen.h"
 
-char	**if_up(char **tab, t_map *map)
+/*char	**if_up(char **tab, t_map *map)
 {
   if ((map->x - 2) < 0)
     return (tab);
@@ -74,3 +74,4 @@ char	**if_left(char **tab, t_map *map)
     map->y -= 2;
   return (tab);
 }
+*/

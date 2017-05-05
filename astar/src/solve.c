@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Mon May  1 15:46:24 2017 Raphaël Goulmot
-** Last update Thu May  4 16:17:09 2017 Raphaël Goulmot
+** Last update Fri May  5 21:11:08 2017 Raphaël Goulmot
 */
 
 #include "utils.h"
@@ -15,10 +15,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-void	load_line(char *line, t_room **grid_line, int y)
+void    load_line(char *line, t_room **grid_line, int y)
 {
-  t_room	*room;
-  int		x;
+  t_room        *room;
+  int           x;
 
   x = 0;
   while (line && *line && *line != '\n' && grid_line)
@@ -28,44 +28,43 @@ void	load_line(char *line, t_room **grid_line, int y)
       room->x = x;
       room->visited = false;
       room->parent = 0;
-      room->blocked = false;
-      if (*line != '*')
-	room->blocked = true;
-      *grid_line = room;
+      room->blocked = *line != '*';
+      grid_line[x] = room;
       line++;
-      grid_line++;
       x++;
     }
 }
 
 void	load_map(t_map *map, int fid)
 {
-  int	y;
+  int	tmp;
   char	*line;
+  t_room	***new;
 
-  y = 0;
-  map->grid = malloc(sizeof(t_room **) * (map->height + 1));
-  while (y < map->height)
+  while ((line = get_next_line(fid)))
     {
-      map->grid[y] = malloc(sizeof(t_room *) * (map->width + 1));
-      map->grid[y][map->width] = 0;
-      line = get_next_line(fid);
-      if (line)
-	{
-	  load_line(line, map->grid[y], y);
-	  free_safe((void *)line);
-	}
-      y++;
+      tmp = 0;
+      map->height++;
+      if (!map->width)
+	map->width = my_strlen(line);
+      new = malloc(sizeof(t_room **) * (map->height + 1));
+      new[map->height] = 0;
+      while (map->grid && map->grid[tmp])
+	new[tmp] = map->grid[tmp++];
+      if (map->grid)
+	free(map->grid);
+      map->grid = new;
+      map->grid[tmp] = malloc(sizeof(t_room *) * (map->width + 1));
+      map->grid[tmp][map->width] = 0;
+      load_line(line, map->grid[tmp], tmp);
+      free_safe((void *)line);
     }
-  map->grid[map->height] = 0;
 }
 
 t_map	*load_file(char *file_name)
 {
   t_map	*map;
   int	fid;
-  char	*line;
-  char	**args;
 
   map = malloc(sizeof(t_map));
   if (!map)
@@ -73,15 +72,9 @@ t_map	*load_file(char *file_name)
   fid = open(file_name, O_RDONLY);
   if (fid < 0)
     return (map);
-  line = get_next_line(fid);
-  if (line)
-    args = split(line, ',');
-  free_safe((void *)line);
-  if (!args)
-    return (map);
-  map->width = my_getnbr(args[0]);
-  map->height = my_getnbr(args[1]);
-  free_wordtab((void **)args);
+  map->width = 0;
+  map->height = 0;
+  map->grid = 0;
   load_map(map, fid);
   close(fid);
   map->start = map->grid[0][0];
@@ -112,7 +105,19 @@ void	display_map(t_map *map)
 void	astar(char *file_name)
 {
   t_map	*map;
+  int	y;
+  int	x;
 
   map = load_file(file_name);
   resolve(map);
+  y = 0;
+  while (map->grid && map->grid[y] && !(x = 0))
+    {
+      while (map->grid[y][x])
+	free(map->grid[y][x++]);
+      free(map->grid[y]);
+      y++;
+    }
+  free(map->grid);
+  free(map);
 }
