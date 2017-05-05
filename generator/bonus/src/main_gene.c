@@ -5,7 +5,7 @@
 ** Login   <tdebrand@epitech.net>
 ** 
 ** Started on  Mon May  1 15:29:42 2017 Thomas DEBRAND PASSARD
-** Last update Fri May  5 21:23:33 2017 Raphaël Goulmot
+** Last update Fri May  5 21:25:04 2017 Raphaël Goulmot
 */
 
 #include "utils.h"
@@ -17,7 +17,7 @@ int	main(int ac, char **av)
   t_map	*map;
   char	**tab;
 
-  if (!(map = malloc(sizeof(t_map))))
+  if (ac < 3 || ac > 4 || !(map = malloc(sizeof(t_map))))
     return (84);
   map = malloc(sizeof(t_map));
   map->height =	my_getnbr(av[2]);
