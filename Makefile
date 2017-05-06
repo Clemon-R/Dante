@@ -5,7 +5,7 @@
 ## Login   <raphael.goulmot@epitech.net>
 ##
 ## Started on  Tue Nov 29 15:57:16 2016 Raphaël Goulmot
-## Last update Fri May  5 21:15:52 2017 Raphaël Goulmot
+## Last update Sat May  6 18:25:25 2017 Raphaël Goulmot
 ##
 
 CC	=	gcc
@@ -46,7 +46,10 @@ DEPTH	=	depth/src/main.c		\
 		depth/src/solve.c		\
 		depth/src/resolve.c
 
-BREADTH	=	breadth/src/main.c
+BREADTH	=	breadth/src/main.c		\
+		breadth/src/solve.c		\
+		breadth/src/resolve.c		\
+		breadth/src/get_room.c
 
 TOURNAMENT	=	tournament/src/main.c
 

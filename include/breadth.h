@@ -5,11 +5,11 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Mon May  1 15:54:44 2017 Raphaël Goulmot
-** Last update Sat May  6 17:14:30 2017 Raphaël Goulmot
+** Last update Sat May  6 18:25:11 2017 Raphaël Goulmot
 */
 
-#ifndef DEPTH_H_
-# define DEPTH_H_
+#ifndef BREADTH_H_
+# define BREADTH_H_
 
 # include <stdbool.h>
 
@@ -17,9 +17,10 @@ typedef struct	s_room
 {
   int		x;
   int		y;
+  bool		o;
   bool		visited;
   bool		blocked;
-  void		*parent;
+  struct s_room		*parent;
 }		t_room;
 
 typedef struct	s_map
@@ -31,14 +32,23 @@ typedef struct	s_map
   int		height;
 }		t_map;
 
+typedef struct s_list
+{
+  t_room	*get;
+  struct s_list	*next;
+}		t_list;
+
 //Fichier solve.c
 void	display_map(t_map *map);
 void	load_line(char *line, t_room **grid_line, int y);
 void	load_map(t_map *amp, int fid);
 t_map	*load_file(char *file_name);
-void	depth(char *file_name);
+void	breadth(char *file_name);
 
 //Fichier resolve.c
 void	resolve(t_map *map);
+
+//Fichier get_room.c
+t_room	*get_room(t_map *map, int y, int x);
 
 #endif
