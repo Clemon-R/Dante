@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Mon May  1 15:46:24 2017 Raphaël Goulmot
-** Last update Sat May  6 18:10:29 2017 Raphaël Goulmot
+** Last update Sat May  6 18:30:05 2017 Raphaël Goulmot
 */
 
 #include "utils.h"
@@ -89,7 +89,7 @@ void	display_map(t_map *map)
   int	x;
 
   y = 0;
-  while (map->grid && map->grid[y])
+  while (map && map->grid && map->grid[y])
     {
       x = 0;
       while (map->grid[y][x])

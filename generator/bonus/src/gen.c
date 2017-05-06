@@ -5,7 +5,7 @@
 ** Login   <tdebrand@epitech.net>
 ** 
 ** Started on  Mon May  1 15:31:53 2017 Thomas DEBRAND PASSARD
-** Last update Fri May  5 21:54:24 2017 Raphaël Goulmot
+** Last update Sat May  6 18:41:13 2017 Raphaël Goulmot
 */
 
 #include "utils.h"
@@ -95,6 +95,6 @@ void	gen(t_map *map)
       while (current && check_move(map, current))
 	current = next_room(map, current);
     }
-  map->end = map->start;
+  map->end->blocked = false;
   display_map(map);
 }
