@@ -5,7 +5,7 @@
 ## Login   <raphael.goulmot@epitech.net>
 ##
 ## Started on  Tue Nov 29 15:57:16 2016 Raphaël Goulmot
-## Last update Sat May  6 18:25:25 2017 Raphaël Goulmot
+## Last update Sun May  7 16:18:26 2017 Raphaël Goulmot
 ##
 
 CC	=	gcc
@@ -51,7 +51,9 @@ BREADTH	=	breadth/src/main.c		\
 		breadth/src/resolve.c		\
 		breadth/src/get_room.c
 
-TOURNAMENT	=	tournament/src/main.c
+TOURNAMENT	=	tournament/src/main.c	\
+			tournament/src/solve.c	\
+			tournament/src/resolve.c
 
 OBJ_G	=	$(SRC:.c=.o)	\
 		$(GEN:.c=.o)
