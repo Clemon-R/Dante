@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Fri May  5 21:07:27 2017 Raphaël Goulmot
-** Last update Fri May  5 21:51:52 2017 Raphaël Goulmot
+** Last update Sun May  7 18:12:21 2017 Raphaël Goulmot
 */
 
 #include "gen.h"
@@ -23,8 +23,9 @@ void    display_map(t_map *map)
       while (map->grid[y][x++])
 	my_putchar(map->grid[y][x - 1]->o ? 'O'
 		   : map->grid[y][x - 1]->blocked ? 'X' : '*');
-      my_putchar('\n');
       y++;
+      if (map->grid[y])
+	my_putchar('\n');
     }
 }
 
