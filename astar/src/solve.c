@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Mon May  1 15:46:24 2017 Raphaël Goulmot
-** Last update Sun May  7 16:04:34 2017 Raphaël Goulmot
+** Last update Sun May  7 18:10:33 2017 Raphaël Goulmot
 */
 
 #include "utils.h"
@@ -109,7 +109,9 @@ void	astar(char *file_name)
   int	x;
 
   map = load_file(file_name);
+  map->start->parent = map->start;
   resolve(map);
+  display_map(map);
   y = 0;
   while (map->grid && map->grid[y] && !(x = 0))
     {
