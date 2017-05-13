@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Mon May  1 16:36:39 2017 Raphaël Goulmot
-** Last update Sun May  7 18:10:21 2017 Raphaël Goulmot
+** Last update Sat May 13 14:18:39 2017 Raphaël Goulmot
 */
 
 #include "astar.h"
@@ -56,6 +56,18 @@ t_room	*resolve_pos(t_map *map, t_room *old)
   return (current);
 }
 
+static t_room	*change_path(t_room **current, t_room *new)
+{
+  t_room	*tmp;
+
+  tmp = *current;
+  (*current)->visited = false;
+  new->parent = (*current)->parent;
+  *current = (*current)->parent;
+  tmp->parent = 0;
+  return (new);
+}
+
 void	resolve(t_map *map)
 {
   t_room	*current;
@@ -70,11 +82,7 @@ void	resolve(t_map *map)
       if (current->parent && current->parent != new
 	  && (tmp = resolve_pos(map, current->parent))
 	  && more_short(map, new, tmp))
-	{
-	  new = current->parent;
-	  current->parent = 0;
-	  current = new->parent;
-	}
+	new = change_path(&current, tmp);
       if (new && current->parent != new)
 	{
 	  new->visited = true;

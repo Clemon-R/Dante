@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Mon May  1 16:36:39 2017 Raphaël Goulmot
-** Last update Sat May  6 18:24:44 2017 Raphaël Goulmot
+** Last update Sat May 13 13:46:58 2017 Raphaël Goulmot
 */
 
 #include "breadth.h"
@@ -46,16 +46,16 @@ t_list	*check_add(t_map *map, t_list *new, t_room *current)
   t_room	*tmp;
 
   tmp = get_room(map, current->y + 1, current->x);
-  if (tmp && !tmp->blocked && !list_contains(new, tmp))
+  if (tmp && !tmp->blocked && !tmp->visited)
     new = add_room(new, tmp, current);
   tmp = get_room(map, current->y - 1, current->x);
-  if (tmp && !tmp->blocked && !list_contains(new, tmp))
+  if (tmp && !tmp->blocked && !tmp->visited)
     new = add_room(new, tmp, current);
   tmp = get_room(map, current->y, current->x + 1);
-  if (tmp && !tmp->blocked && !list_contains(new, tmp))
+  if (tmp && !tmp->blocked && !tmp->visited)
     new = add_room(new, tmp, current);
   tmp = get_room(map, current->y, current->x - 1);
-  if (tmp && !tmp->blocked && !list_contains(new, tmp))
+  if (tmp && !tmp->blocked && !tmp->visited)
     new = add_room(new, tmp, current);
   return (new);
 }
@@ -66,7 +66,7 @@ void	launch_search(t_map *map, t_list *list)
   t_room	*current;
   char		check;
 
-  clone = list;
+  clone = 0;
   check = 0;
   while (list && (current = list->get))
     {
