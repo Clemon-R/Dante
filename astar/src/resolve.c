@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Mon May  1 16:36:39 2017 Raphaël Goulmot
-** Last update Sat May 13 14:18:39 2017 Raphaël Goulmot
+** Last update Sat May 13 15:02:58 2017 Raphaël Goulmot
 */
 
 #include "astar.h"
@@ -29,7 +29,8 @@ char	more_short(t_map *map, t_room *first, t_room *second)
 char	check_room(t_map *map, int y, int x)
 {
   if (y >= 0 && y < map->height && x >= 0 && x < map->width
-      && !map->grid[y][x]->blocked && !map->grid[y][x]->visited)
+      && !map->grid[y][x]->blocked && !map->grid[y][x]->visited
+      && !map->grid[y][x]->used)
     return (1);
   return (0);
 }
@@ -65,6 +66,7 @@ static t_room	*change_path(t_room **current, t_room *new)
   new->parent = (*current)->parent;
   *current = (*current)->parent;
   tmp->parent = 0;
+  new->used = true;
   return (new);
 }
 

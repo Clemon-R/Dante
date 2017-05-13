@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Mon May  1 15:54:44 2017 Raphaël Goulmot
-** Last update Thu May  4 16:16:31 2017 Raphaël Goulmot
+** Last update Sat May 13 14:53:18 2017 Raphaël Goulmot
 */
 
 #ifndef ASTAR_H_
@@ -20,6 +20,7 @@ typedef struct	s_room
   bool		visited;
   bool		blocked;
   void		*parent;
+  bool		used;
 }		t_room;
 
 typedef struct	s_map

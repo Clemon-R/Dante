@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Mon May  1 15:46:24 2017 Raphaël Goulmot
-** Last update Sun May  7 18:10:33 2017 Raphaël Goulmot
+** Last update Sat May 13 14:53:35 2017 Raphaël Goulmot
 */
 
 #include "utils.h"
@@ -26,6 +26,7 @@ void    load_line(char *line, t_room **grid_line, int y)
       room = malloc(sizeof(t_room));
       room->y = y;
       room->x = x;
+      room->used = false;
       room->visited = false;
       room->parent = 0;
       room->blocked = *line != '*';

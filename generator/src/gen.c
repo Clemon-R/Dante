@@ -5,7 +5,7 @@
 ** Login   <tdebrand@epitech.net>
 ** 
 ** Started on  Mon May  1 15:31:53 2017 Thomas DEBRAND PASSARD
-** Last update Sat May  6 18:40:44 2017 Raphaël Goulmot
+** Last update Sat May 13 14:36:03 2017 Raphaël Goulmot
 */
 
 #include "utils.h"
@@ -71,6 +71,7 @@ t_room	*next_room(t_map *map, t_room *current)
 void	gen(t_map *map)
 {
   t_room	*current;
+  t_room	*tmp;
   char		dir;
 
   create_empty_grid(map);
