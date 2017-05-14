@@ -5,7 +5,7 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Mon May  1 16:36:39 2017 Raphaël Goulmot
-** Last update Thu May  4 16:15:34 2017 Raphaël Goulmot
+** Last update Sun May 14 11:18:19 2017 Raphaël Goulmot
 */
 
 #include "depth.h"
@@ -79,7 +79,6 @@ void	resolve(t_map *map)
   t_room	*new;
 
   current = map->start;
-  current->parent = 0;
   while (map->end != current)
     {
       if (!(new = resolve_pos(map, current)))
@@ -91,5 +90,6 @@ void	resolve(t_map *map)
 	current->parent = 0;
       current = new;
     }
+  map->start->parent = map->start;
   display_map(map);
 }
