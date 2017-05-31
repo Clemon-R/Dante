@@ -5,12 +5,12 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Mon May  1 15:46:24 2017 Raphaël Goulmot
-** Last update Sat May 13 14:53:35 2017 Raphaël Goulmot
+** Last update Wed May 31 05:48:53 2017 Raphaël Goulmot
 */
 
 #include "utils.h"
 #include "line.h"
-#include "astar.h"
+#include "depth.h"
 #include <fcntl.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -23,16 +23,15 @@ void    load_line(char *line, t_room **grid_line, int y)
   x = 0;
   while (line && *line && *line != '\n' && grid_line)
     {
-      room = malloc(sizeof(t_room));
+      if (!(room = malloc(sizeof(t_room))))
+	  return;
       room->y = y;
       room->x = x;
-      room->used = false;
       room->visited = false;
       room->parent = 0;
       room->blocked = *line != '*';
-      grid_line[x] = room;
+      grid_line[x++] = room;
       line++;
-      x++;
     }
 }
 
@@ -67,11 +66,9 @@ t_map	*load_file(char *file_name)
   t_map	*map;
   int	fid;
 
-  map = malloc(sizeof(t_map));
-  if (!map)
+  if (!(map = malloc(sizeof(t_map))))
     return (0);
-  fid = open(file_name, O_RDONLY);
-  if (fid < 0)
+  if ((fid = open(file_name, O_RDONLY)) < 0)
     return (map);
   map->width = 0;
   map->height = 0;
@@ -103,16 +100,14 @@ void	display_map(t_map *map)
     }
 }
 
-void	astar(char *file_name)
+void	depth(char *file_name)
 {
   t_map	*map;
   int	y;
   int	x;
 
   map = load_file(file_name);
-  map->start->parent = map->start;
   resolve(map);
-  display_map(map);
   y = 0;
   while (map->grid && map->grid[y] && !(x = 0))
     {

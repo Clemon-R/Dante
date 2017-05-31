@@ -5,14 +5,14 @@
 ** Login   <raphael.goulmot@epitech.net>
 ** 
 ** Started on  Fri Apr 28 19:07:46 2017 Raphaël Goulmot
-** Last update Mon May  1 16:06:44 2017 Raphaël Goulmot
+** Last update Thu May  4 12:08:04 2017 Raphaël Goulmot
 */
 
-#include "astar.h"
+#include "depth.h"
 
 int	main(int argc, char **argv)
 {
   if (argc == 2)
-    astar(argv[1]);
+    depth(argv[1]);
   return (0);
 }
